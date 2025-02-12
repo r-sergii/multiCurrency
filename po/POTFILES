@@ -1,0 +1,7 @@
+data/ua.inf.multiapps.multiCurrency.desktop.in
+data/ua.inf.multiapps.multiCurrency.appdata.xml.in
+data/ua.inf.multiapps.multiCurrency.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
