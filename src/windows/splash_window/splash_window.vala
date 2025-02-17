@@ -11,7 +11,7 @@ namespace Multicurrency {
         }
 
         construct{
-            var logo = new Gtk.Image.from_icon_name("ua.inf.multiapps.multiCurrency") {
+            var logo = new Gtk.Image.from_icon_name("io.github.r_sergii.multiCurrency") {
                 pixel_size = 128
             };
 

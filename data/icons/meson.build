@@ -1,4 +1,4 @@
-application_id = 'ua.inf.multiapps.multiCurrency'
+application_id = 'io.github.r_sergii.multiCurrency'
 f_usd_id = 'f_usd'
 f_eur_id = 'f_eur'
 f_gbp_id = 'f_gbp'

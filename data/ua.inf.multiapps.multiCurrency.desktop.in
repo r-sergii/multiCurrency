@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=multicurrency
-Exec=multicurrency
-Icon=ua.inf.multiapps.multiCurrency
-Terminal=false
-Type=Application
-Categories=GTK;
-StartupNotify=true

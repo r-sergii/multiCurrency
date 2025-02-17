@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=multicurrency
+Comment=Cross-rates of major world currencies online
+Exec=multicurrency
+Icon=io.github.r_sergii.multiCurrency
+Terminal=false
+Type=Application
+Categories=Utility;GNOME;GTK;
+StartupNotify=true
+Keywords=Currency;Forex;Cross-rates;
+X-Purism-FormFactor=Workstation;

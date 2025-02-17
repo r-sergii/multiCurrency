@@ -1,7 +1,5 @@
-data/ua.inf.multiapps.multiCurrency.desktop.in
-data/ua.inf.multiapps.multiCurrency.appdata.xml.in
-data/ua.inf.multiapps.multiCurrency.gschema.xml
-src/window.ui
+data/io.github.r_sergii.multiCurrency.desktop.in
+data/io.github.r_sergii.multiCurrency.appdata.xml.in
+data/io.github.r_sergii.multiCurrency.gschema.xml
 src/main.vala
-src/window.vala
 

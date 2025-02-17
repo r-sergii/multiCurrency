@@ -1,23 +1,5 @@
-/* window.vala
- *
- * Copyright 2025 r-sergii
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 namespace Multicurrency {
-    [GtkTemplate (ui = "/ua/inf/multiapps/multiCurrency/windows/main_window/main_window.ui")]
+    [GtkTemplate (ui = "/io/github/r_sergii/multiCurrency/windows/main_window/main_window.ui")]
     public class MainWindow : Gtk.ApplicationWindow {
 
         private Gtk.CssProvider css_provider;
@@ -53,7 +35,7 @@ namespace Multicurrency {
 	        grid.row_spacing = 2;
 
             css_provider = new Gtk.CssProvider();
-            css_provider.load_from_resource("/ua/inf/multiapps/multiCurrency/rate_widget.css");
+            css_provider.load_from_resource("/io/github/r_sergii/multiCurrency/rate_widget.css");
             Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css_provider,Gtk.STYLE_PROVIDER_PRIORITY_USER);
 
             var usd = new Gtk.Image.from_icon_name("f_usd") {
