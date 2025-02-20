@@ -18,6 +18,8 @@ namespace Multicurrency {
         public const string make_connect = "make-connect";
         public const string exit_ = "exit";
         public const string are_exit = "are-exit";
+
+        public const string currency = "currency";
     }
 
     const char SPACE = 32;
@@ -41,6 +43,8 @@ namespace Multicurrency {
         public string exit_;
         public string are_exit;
 
+        public string currency;
+
         public LocaleModel() {
             reinit ();
         }
@@ -63,6 +67,8 @@ namespace Multicurrency {
             make_connect = "Make%20the%20connection%20and%20try%20again";
             exit_ = "Exit?";
             are_exit = "Are%20you%20sure%20you%20want%20to%20exit?";
+
+            currency = "Currency";
         }
 
         public void reinit () {
@@ -83,6 +89,8 @@ namespace Multicurrency {
             make_connect = "Make the connection and try again";
             exit_ = "Exit?";
             are_exit = "Are you sure you want to exit?";
+
+            currency = "Currency";
         }
 
         public void fromSettings (GLib.Settings settings)
@@ -106,6 +114,8 @@ namespace Multicurrency {
             make_connect = settings.get_string (LocaleField.make_connect);
             exit_ = settings.get_string (LocaleField.exit_);
             are_exit = settings.get_string (LocaleField.are_exit);
+
+            currency = settings.get_string (LocaleField.currency);
         }
 
         public void toSettings (GLib.Settings settings)
@@ -129,6 +139,8 @@ namespace Multicurrency {
             settings.set_string (LocaleField.make_connect, make_connect);
             settings.set_string (LocaleField.exit_, exit_);
             settings.set_string (LocaleField.are_exit, are_exit);
+
+            settings.set_string (LocaleField.currency, currency);
         }
 
     }

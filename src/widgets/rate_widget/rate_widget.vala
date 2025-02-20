@@ -21,8 +21,13 @@ namespace Multicurrency {
 
             char[] buf = new char[double.DTOSTR_BUF_SIZE];
 	        rate = close.to_str(buf);
+	        int len = rate.length;
 	        if(rate.length > 6) {
 	            rate = rate.substring(0,6);
+
+	        }
+	        else {
+	            rate = rate.substring(0,len);
 	        }
 
             Gtk.Image iTrend;
@@ -43,7 +48,8 @@ namespace Multicurrency {
                 };
 	        }
 
-	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
+//	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
+	        Gtk.Label lRate = new Gtk.Label (rate);
 	        Gtk.Box vBox = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
             vBox.set_homogeneous (false);
 
@@ -70,8 +76,16 @@ namespace Multicurrency {
 
             char[] buf = new char[double.DTOSTR_BUF_SIZE];
 	        rate = close.to_str(buf);
-	        if(rate.length > 7) {
+//	        if(rate.length > 7) {
+	//            rate = rate.substring(0,6);
+	  //      }
+	        int len = rate.length;
+	        if(rate.length > 6) {
 	            rate = rate.substring(0,6);
+
+	        }
+	        else {
+	            rate = rate.substring(0,len);
 	        }
 
             Gtk.Image iTrend;
@@ -92,7 +106,8 @@ namespace Multicurrency {
                 };
 	        }
 
-	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
+//	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
+	        Gtk.Label lRate = new Gtk.Label (rate);
 	        Gtk.Box vBox = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
             vBox.set_homogeneous (false);
 

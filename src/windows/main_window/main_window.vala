@@ -24,6 +24,7 @@ namespace Multicurrency {
         public void init_menu () {
             var app = GLib.Application.get_default();
             var locale = (app as Multicurrency.Application).settingsService.locale;
+            var currencyService = (app as Multicurrency.Application).currencyService;
 
             var menu = new GLib.Menu();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,6 +49,9 @@ namespace Multicurrency {
 
             this.theme_switcher = new MyLib.ThemeSwitcher ();
             pop.add_child (this.theme_switcher, "theme");
+
+            set_title (locale.currency + ": " + currencyService.sDate + " " + currencyService.sHour + ":"
+                + currencyService.sMin + " " + currencyService.gmt);
         }
 
 
@@ -146,6 +150,7 @@ namespace Multicurrency {
             var app = GLib.Application.get_default();
             Multicurrency.CurrencyService currencyService
                 = (app as Multicurrency.Application).currencyService;
+            var locale = (app as Multicurrency.Application).settingsService.locale;
 
             var usdeur = new RateWidget.fromModel (currencyService.tUSDEUR);
             var usdgbp = new RateWidget.fromModel (currencyService.tUSDGBP);
@@ -283,11 +288,13 @@ namespace Multicurrency {
             grid.attach (nzdaud, 7, 8, 1, 1);
             grid.attach (new FillWidget(), 8, 8, 1, 1);
 
-            message (currencyService.sDateTime);
-            message (currencyService.sDate);
-            message (currencyService.sHour);
-            message (currencyService.sMin);
-            set_title ("Currency: " + currencyService.sDate + " " + currencyService.sHour + ":"
+//            message (currencyService.sDateTime);
+//            message (currencyService.sDate);
+//            message (currencyService.sHour);
+//            message (currencyService.sMin);
+
+//            set_title ("Currency: " + currencyService.sDate + " " + currencyService.sHour + ":"
+            set_title (locale.currency + ": " + currencyService.sDate + " " + currencyService.sHour + ":"
                 + currencyService.sMin + " " + currencyService.gmt);
 
         }
@@ -296,7 +303,7 @@ namespace Multicurrency {
             get { return get_height(); }
             set {
                 Idle.add(() => {
-                    print(@"window height: $value\n");
+//                    print(@"window height: $value\n");
                     return Source.REMOVE;
                 });
                 grid.set_size_request (get_width (), get_height ());
@@ -308,7 +315,7 @@ namespace Multicurrency {
             get { return get_width(); }
             set {
                 Idle.add(() => {
-                    print(@"window width: $value\n");
+//                    print(@"window width: $value\n");
                     return Source.REMOVE;
                 });
                 //grid.set_size_request (get_width (), get_height ());
@@ -319,7 +326,7 @@ namespace Multicurrency {
             get { return maximized; }
             set {
                 Idle.add(() => {
-                    print(@"window maximized: $isMaximized; width: $(get_width())\n");
+//                    print(@"window maximized: $isMaximized; width: $(get_width())\n");
                     return Source.REMOVE;
                 });
             }

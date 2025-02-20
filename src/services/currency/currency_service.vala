@@ -10,7 +10,7 @@ namespace Multicurrency {
         public void getItems () {
             var currencyProvider = new CurrencyProvider ();
             currencyProvider.getItems ( listRates );
-            message (listRates.size.to_string ());
+//            message (listRates.size.to_string ());
         }
 
         private CurrencyModel getModel (string nameRate) {

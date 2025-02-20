@@ -25,7 +25,7 @@ namespace Multicurrency {
                 + temp.about + ";" + temp.quit + ";" + temp.ok + ";" + temp.cancel + ";"
                 + temp.close + ";" + temp.choose_lang + ";" + temp.yes_rem + ";" + temp.no_rem + ";"
                 + temp.choose_cities + ";" + temp.bad_inet + ";" + temp.exit_ + ";"
-                + temp.make_connect + ";" + temp.are_exit;
+                + temp.make_connect + ";" + temp.are_exit + ";" + temp.currency;
 
 //            message (translateModel.lang);
 //            message (translateModel.words);
@@ -95,6 +95,10 @@ namespace Multicurrency {
                         break;
                     case "Are you sure you want to exit?":
                         _currentLocale.are_exit = listTranslator[i].translation;
+                        break;
+
+                    case "Currency":
+                        _currentLocale.currency = listTranslator[i].translation;
                         break;
                     default:
                         break;

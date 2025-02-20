@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=multicurrency
+Name=multiCurrency
 Comment=Cross-rates of major world currencies online
 Exec=multicurrency
 Icon=io.github.r_sergii.multiCurrency

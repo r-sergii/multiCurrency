@@ -55,5 +55,8 @@
 	  <key name="are-exit" type="s">
 	    <default>"Are you sure you want to exit?"</default>
 	  </key>
+	  <key name="currency" type="s">
+	    <default>"Currency"</default>
+	  </key>
   </schema>
 </schemalist>

@@ -1,6 +1,6 @@
 namespace Multicurrency {
 
-    class CurrencyField {
+    public abstract class CurrencyField {
         public const string quotes = "quotes";
         public const string datetime = "datetime";
         public const string open = "open";
@@ -21,32 +21,32 @@ namespace Multicurrency {
         }
 
         public CurrencyModel.fromJson (Json.Node item) {
-            CurrencyField currencyField = new CurrencyField();
+//            CurrencyField currencyField = new CurrencyField();
 
             Json.Object obj = item.get_object ();
             foreach(unowned string name in obj.get_members ()) {
                 switch(name) {
-                    case currencyField.quotes:
+                    case CurrencyField.quotes:
                         unowned Json.Node it = obj.get_member (name);
-                        quotes = obj.get_string_member (currencyField.quotes);
-                        message (quotes);
+                        quotes = obj.get_string_member (CurrencyField.quotes);
+//                        message (quotes);
                         break;
-                    case currencyField.datetime:
+                    case CurrencyField.datetime:
                         unowned Json.Node it = obj.get_member (name);
-                        datetime = obj.get_string_member (currencyField.datetime);
-                        message (datetime);
+                        datetime = obj.get_string_member (CurrencyField.datetime);
+//                        message (datetime);
                         break;
-                    case currencyField.open:
+                    case CurrencyField.open:
                         unowned Json.Node it = obj.get_member (name);
-                        open = obj.get_double_member (currencyField.open);
+                        open = obj.get_double_member (CurrencyField.open);
                         char[] buf = new char[double.DTOSTR_BUF_SIZE];
-                        message(open.to_str(buf));
+//                        message(open.to_str(buf));
                         break;
-                    case currencyField.close:
+                    case CurrencyField.close:
                         unowned Json.Node it = obj.get_member (name);
-                        close = obj.get_double_member (currencyField.close);
+                        close = obj.get_double_member (CurrencyField.close);
                         char[] buf = new char[double.DTOSTR_BUF_SIZE];
-                        message(close.to_str(buf));
+//                        message(close.to_str(buf));
                         break;
                     default:
                         break;

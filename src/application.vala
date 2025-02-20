@@ -6,6 +6,8 @@ namespace Multicurrency {
 
         private Multicurrency.SettingsService _settingsService;
 
+        private MyLib.InfoLinux info;
+
         public Application () {
             Object (application_id: "io.github.r_sergii.multiCurrency", flags: ApplicationFlags.FLAGS_NONE);
         }
@@ -30,6 +32,9 @@ namespace Multicurrency {
 //            var provider = new Gtk.CssProvider ();
   //          provider.load_from_resource ("/ua/inf/multiapps/multiCurrency/theme_switcher.css");
     //        Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+
+            info = new MyLib.InfoLinux ();
+//            stdout.printf ("%s\n", info.os + "-" + info.cpu);
 
             _settingsService = new SettingsService ();
             _currencyService = new CurrencyService ();
@@ -56,6 +61,11 @@ namespace Multicurrency {
                     noconnect.present ();
                     return;
                 }
+
+                var locale = this.settingsService.locale;
+
+                var appsLoad = new Multicurrency.AppsLoadService (info, _settingsService.locale.locale );
+                appsLoad.insert ();
 
                 var splash = new Multicurrency.SplashWindow (this);
                 splash.present ();
@@ -132,7 +142,7 @@ namespace Multicurrency {
         }
 
         private void on_preferences_action () {
-            message ("app.preferences action activated");
+//            message ("app.preferences action activated");
         }
 
         private void init_app_theme () {
