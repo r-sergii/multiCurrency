@@ -4,6 +4,8 @@ namespace Multicurrency {
 
         private Gtk.CssProvider css_provider;
 
+//        [GtkChild]
+  //      private unowned Gtk.CenterBox center;
         [GtkChild]
         private unowned Gtk.Grid grid;
 //        private unowned Gtk.Label label;
@@ -19,12 +21,45 @@ namespace Multicurrency {
             this.bind_property("maximized", this, "isMaximized", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         }
 
-        construct{
-            //set_resizable (false);
+        public void init_menu () {
+            var app = GLib.Application.get_default();
+            var locale = (app as Multicurrency.Application).settingsService.locale;
+
+            var menu = new GLib.Menu();
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            var item_theme = new GLib.MenuItem (_("custom"), null);//"app.set_app_theme");
+            item_theme.set_attribute ("custom", "s", "theme");
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//            var item_preferences = new GLib.MenuItem (_("Preferences"), "app.preferences");
+            var item_language = new GLib.MenuItem (_(locale.language), "app.language");
+            var item_about = new GLib.MenuItem (_(locale.about +" multiCurrency"), "app.about");
+            var item_quit = new GLib.MenuItem (_(locale.exit_), "app.quit");
+
+//            message (locale.locale);
+
+            menu.append_item (item_theme);
+//            menu.append_item (item_preferences);
+            menu.append_item (item_language);
+            menu.append_item (item_about);
+            menu.append_item (item_quit);
 
             var pop = (Gtk.PopoverMenu) this.menu_button.get_popover ();
+            pop.set_menu_model (menu);
+
             this.theme_switcher = new MyLib.ThemeSwitcher ();
             pop.add_child (this.theme_switcher, "theme");
+        }
+
+
+        construct{
+            this.resizable = false;
+//            this.decorated = true;
+            //set_resizable (false);
+            init_menu ();
+
+//            var pop = (Gtk.PopoverMenu) this.menu_button.get_popover ();
+  //          this.theme_switcher = new MyLib.ThemeSwitcher ();
+    //        pop.add_child (this.theme_switcher, "theme");
 
 //            var currencyProvider = new CurrencyProvider ();
 //            currencyProvider.getItems ();
@@ -62,6 +97,7 @@ namespace Multicurrency {
             var nzd = new Gtk.Image.from_icon_name("f_nzd") {
                 pixel_size = 64
             };
+
 
             grid.attach (new FillWidget(), 0, 0, 1, 1);
             grid.attach (usd, 0, 1, 1, 1);
@@ -287,6 +323,52 @@ namespace Multicurrency {
                     return Source.REMOVE;
                 });
             }
+        }
+
+        private void on_language_action () {
+//            message ("language action show activated");
+
+            var language = new Multicurrency.LanguageWindow (this);
+            language.set_transient_for (this);
+            language.show ();
+
+            var pop = (Gtk.PopoverMenu) this.menu_button.get_popover ();
+            pop.hide ();
+        }
+
+        public void on_close_application () {
+            var app = GLib.Application.get_default();
+            call_are_exit_dialog (app);
+            //app.quit();
+            //return true;
+        }
+
+        private void call_are_exit_dialog (GLib.Application app) {
+//            var app = GLib.Application.get_default();
+//            var theme = (app as Multiclock.Application).theme;
+            var locale = (app as Multicurrency.Application).settingsService.locale;
+
+//            var are_exit_dialog = new Adw.MessageDialog(this, _("Exit?"), _("Are you sure you want to exit?"));
+  //          are_exit_dialog.add_response("cancel", _("_Cancel"));
+    //        are_exit_dialog.add_response("ok", _("_Exit"));
+            var are_exit_dialog = new Adw.MessageDialog(this, _(locale.exit_), _(locale.are_exit));
+            are_exit_dialog.add_response("cancel", _(locale.cancel));
+            are_exit_dialog.add_response("ok", _(locale.exit_));
+            are_exit_dialog.set_default_response("ok");
+            are_exit_dialog.set_close_response("cancel");
+            are_exit_dialog.set_response_appearance("ok", SUGGESTED);
+            are_exit_dialog.show();
+            are_exit_dialog.response.connect((response) => {
+                if (response == "ok") {
+                    try {
+                         app.quit();
+                    } catch (Error e) {
+                         stderr.printf ("Error: %s\n", e.message);
+                    }
+                }
+                are_exit_dialog.close();
+                //app.quit();
+            });
         }
     }
 }

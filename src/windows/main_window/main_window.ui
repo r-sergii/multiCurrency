@@ -26,7 +26,7 @@
           <attribute name="scale" value="2"/>
         </attributes>
       </object>
-      <!--
+
       <object class="GtkGrid" id="grid">
         <attributes>
           <attribute name="column_spacing" value="2"/>
