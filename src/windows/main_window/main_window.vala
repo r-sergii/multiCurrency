@@ -1,3 +1,4 @@
+
 namespace Multicurrency {
     [GtkTemplate (ui = "/io/github/r_sergii/multiCurrency/windows/main_window/main_window.ui")]
     public class MainWindow : Gtk.ApplicationWindow {
