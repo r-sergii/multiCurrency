@@ -21,7 +21,7 @@ namespace Multicurrency {
         }
 
         public void insert() {
-//            appsLoadProvider.insertItem( model );
+            appsLoadProvider.insertItem( model );
         }
     }
 }
