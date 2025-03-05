@@ -15,6 +15,9 @@ namespace Multicurrency {
         double open;
         double close;
 
+        Gtk.Image iTrend;
+        Gtk.Label lRate;
+
         public RateWidget (double _open, double _close) {
             open = _open;
             close = _close;
@@ -30,7 +33,7 @@ namespace Multicurrency {
 	            rate = rate.substring(0,len);
 	        }
 
-            Gtk.Image iTrend;
+            //Gtk.Image iTrend;
 	        if(close > open) {
 	            trend = 1;
 	            iTrend = new Gtk.Image.from_icon_name("up_green-hdpi") {
@@ -48,8 +51,9 @@ namespace Multicurrency {
                 };
 	        }
 
-//	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
-	        Gtk.Label lRate = new Gtk.Label (rate);
+//	        (rate.substring(0,6));
+//	        Gtk.Label
+	        lRate = new Gtk.Label (rate);
 	        Gtk.Box vBox = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
             vBox.set_homogeneous (false);
 
@@ -88,7 +92,7 @@ namespace Multicurrency {
 	            rate = rate.substring(0,len);
 	        }
 
-            Gtk.Image iTrend;
+//            Gtk.Image iTrend;
 	        if(close > open) {
 	            trend = 1;
 	            iTrend = new Gtk.Image.from_icon_name("up_green-hdpi") {
@@ -106,8 +110,9 @@ namespace Multicurrency {
                 };
 	        }
 
-//	        Gtk.Label lRate = new Gtk.Label (rate.substring(0,6));
-	        Gtk.Label lRate = new Gtk.Label (rate);
+//	        new Gtk.Label (rate.substring(0,6));
+//	        Gtk.Label
+	        lRate = new Gtk.Label (rate);
 	        Gtk.Box vBox = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
             vBox.set_homogeneous (false);
 
@@ -128,5 +133,40 @@ namespace Multicurrency {
             this.add_css_class(LIGHTGREY);
         }
 
+        public void update (CurrencyModel model) {
+            open = model.open;
+            close = model.close;
+
+            char[] buf = new char[double.DTOSTR_BUF_SIZE];
+	        rate = close.to_str(buf);
+
+	        int len = rate.length;
+	        if(rate.length > 6) {
+	            rate = rate.substring(0,6);
+
+	        }
+	        else {
+	            rate = rate.substring(0,len);
+	        }
+
+	        if(close > open) {
+	            trend = 1;
+	            iTrend.set_from_icon_name("up_green-hdpi");
+	        } else if (close < open) {
+	            trend = -1;
+	            iTrend.set_from_icon_name("down_red-hdpi");
+	        } else {
+	            trend = 0;
+	            iTrend.set_from_icon_name("equal_blue-hdpi");
+	        }
+
+
+	        lRate.set_markup ("<span size='12000'>" + rate + "</span>");
+	        lRate.set_justify (Gtk.Justification.LEFT);
+
+            lRate.set_use_markup(true);
+            lRate.remove_css_class(LIGHTGREY);
+            lRate.add_css_class(LIGHTGREY);
+        }
     }
 }

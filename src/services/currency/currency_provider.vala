@@ -60,5 +60,19 @@ namespace Multicurrency {
             }
 */
         }
+
+        public void updateRates () {
+            var host = baseUrl + "/update";
+
+            try {
+                var response = http.get( host );
+                if ( response.status.code == 200 ){
+                    //stdout.printf(@"My public IP address is: $(response)\n");
+//                    message (response.to_string ());
+                }
+            } catch (Error err){
+                stderr.printf(@"$(err.message)\n");
+            }
+        }
     }
 }

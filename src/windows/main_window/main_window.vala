@@ -15,6 +15,70 @@ namespace Multicurrency {
         [GtkChild]
         private unowned Gtk.MenuButton menu_button;
 
+        RateWidget usdeur;
+        RateWidget usdgbp;
+        RateWidget usdjpy;
+        RateWidget usdchf;
+        RateWidget usdcad;
+        RateWidget usdaud;
+        RateWidget usdnzd;
+
+        RateWidget eurusd;
+        RateWidget eurgbp;
+        RateWidget eurjpy;
+        RateWidget eurchf;
+        RateWidget eurcad;
+        RateWidget euraud;
+        RateWidget eurnzd;
+
+        RateWidget gbpusd;
+        RateWidget gbpeur;
+        RateWidget gbpjpy;
+        RateWidget gbpchf;
+        RateWidget gbpcad;
+        RateWidget gbpaud;
+        RateWidget gbpnzd;
+
+        RateWidget jpyusd;
+        RateWidget jpyeur;
+        RateWidget jpygbp;
+        RateWidget jpychf;
+        RateWidget jpycad;
+        RateWidget jpyaud;
+        RateWidget jpynzd;
+
+        RateWidget chfusd;
+        RateWidget chfeur;
+        RateWidget chfgbp;
+        RateWidget chfjpy;
+        RateWidget chfcad;
+        RateWidget chfaud;
+        RateWidget chfnzd;
+
+        RateWidget cadusd;
+        RateWidget cadeur;
+        RateWidget cadgbp;
+        RateWidget cadjpy;
+        RateWidget cadchf;
+        RateWidget cadaud;
+        RateWidget cadnzd;
+
+        RateWidget audusd;
+        RateWidget audeur;
+        RateWidget audgbp;
+        RateWidget audjpy;
+        RateWidget audchf;
+        RateWidget audcad;
+        RateWidget audnzd;
+
+        RateWidget nzdusd;
+        RateWidget nzdeur;
+        RateWidget nzdgbp;
+        RateWidget nzdjpy;
+        RateWidget nzdchf;
+        RateWidget nzdcad;
+        RateWidget nzdaud;
+
         public MainWindow (Gtk.Application app) {
             Object (application: app);
             this.bind_property("default-width", this, "windowWidth", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
@@ -153,13 +217,20 @@ namespace Multicurrency {
                 = (app as Multicurrency.Application).currencyService;
             var locale = (app as Multicurrency.Application).settingsService.locale;
 
-            var usdeur = new RateWidget.fromModel (currencyService.tUSDEUR);
-            var usdgbp = new RateWidget.fromModel (currencyService.tUSDGBP);
-            var usdjpy = new RateWidget.fromModel (currencyService.tUSDJPY);
-            var usdchf = new RateWidget.fromModel (currencyService.tUSDCHF);
-            var usdcad = new RateWidget.fromModel (currencyService.tUSDCAD);
-            var usdaud = new RateWidget.fromModel (currencyService.tUSDAUD);
-            var usdnzd = new RateWidget.fromModel (currencyService.tUSDNZD);
+            //var
+            usdeur = new RateWidget.fromModel (currencyService.tUSDEUR);
+            //var
+            usdgbp = new RateWidget.fromModel (currencyService.tUSDGBP);
+            //var
+            usdjpy = new RateWidget.fromModel (currencyService.tUSDJPY);
+            //var
+            usdchf = new RateWidget.fromModel (currencyService.tUSDCHF);
+            //var
+            usdcad = new RateWidget.fromModel (currencyService.tUSDCAD);
+            //var
+            usdaud = new RateWidget.fromModel (currencyService.tUSDAUD);
+            //var
+            usdnzd = new RateWidget.fromModel (currencyService.tUSDNZD);
 
             grid.attach (new FillWidget(), 1, 1, 1, 1);
             grid.attach (usdeur, 2, 1, 1, 1);
@@ -170,13 +241,20 @@ namespace Multicurrency {
             grid.attach (usdaud, 7, 1, 1, 1);
             grid.attach (usdnzd, 8, 1, 1, 1);
 
-            var eurusd = new RateWidget.fromModel (currencyService.tEURUSD);
-            var eurgbp = new RateWidget.fromModel (currencyService.tEURGBP);
-            var eurjpy = new RateWidget.fromModel (currencyService.tEURJPY);
-            var eurchf = new RateWidget.fromModel (currencyService.tEURCHF);
-            var eurcad = new RateWidget.fromModel (currencyService.tEURCAD);
-            var euraud = new RateWidget.fromModel (currencyService.tEURAUD);
-            var eurnzd = new RateWidget.fromModel (currencyService.tEURNZD);
+            //var
+            eurusd = new RateWidget.fromModel (currencyService.tEURUSD);
+            //var
+            eurgbp = new RateWidget.fromModel (currencyService.tEURGBP);
+            //var
+            eurjpy = new RateWidget.fromModel (currencyService.tEURJPY);
+            //var
+            eurchf = new RateWidget.fromModel (currencyService.tEURCHF);
+            //var
+            eurcad = new RateWidget.fromModel (currencyService.tEURCAD);
+            //var
+            euraud = new RateWidget.fromModel (currencyService.tEURAUD);
+            //var
+            eurnzd = new RateWidget.fromModel (currencyService.tEURNZD);
 
             grid.attach (eurusd, 1, 2, 1, 1);
             grid.attach (new FillWidget(), 2, 2, 1, 1);
@@ -187,13 +265,20 @@ namespace Multicurrency {
             grid.attach (euraud, 7, 2, 1, 1);
             grid.attach (eurnzd, 8, 2, 1, 1);
 
-            var gbpusd = new RateWidget.fromModel (currencyService.tGBPUSD);
-            var gbpeur = new RateWidget.fromModel (currencyService.tGBPEUR);
-            var gbpjpy = new RateWidget.fromModel (currencyService.tGBPJPY);
-            var gbpchf = new RateWidget.fromModel (currencyService.tGBPCHF);
-            var gbpcad = new RateWidget.fromModel (currencyService.tGBPCAD);
-            var gbpaud = new RateWidget.fromModel (currencyService.tGBPAUD);
-            var gbpnzd = new RateWidget.fromModel (currencyService.tGBPNZD);
+            //var
+            gbpusd = new RateWidget.fromModel (currencyService.tGBPUSD);
+            //var
+            gbpeur = new RateWidget.fromModel (currencyService.tGBPEUR);
+            //var
+            gbpjpy = new RateWidget.fromModel (currencyService.tGBPJPY);
+            //var
+            gbpchf = new RateWidget.fromModel (currencyService.tGBPCHF);
+            //var
+            gbpcad = new RateWidget.fromModel (currencyService.tGBPCAD);
+            //var
+            gbpaud = new RateWidget.fromModel (currencyService.tGBPAUD);
+            //var
+            gbpnzd = new RateWidget.fromModel (currencyService.tGBPNZD);
 
             grid.attach (gbpusd, 1, 3, 1, 1);
             grid.attach (gbpeur, 2, 3, 1, 1);
@@ -204,13 +289,20 @@ namespace Multicurrency {
             grid.attach (gbpaud, 7, 3, 1, 1);
             grid.attach (gbpnzd, 8, 3, 1, 1);
 
-            var jpyusd = new RateWidget.fromModel (currencyService.tJPYUSD);
-            var jpyeur = new RateWidget.fromModel (currencyService.tJPYEUR);
-            var jpygbp = new RateWidget.fromModel (currencyService.tJPYGBP);
-            var jpychf = new RateWidget.fromModel (currencyService.tJPYCHF);
-            var jpycad = new RateWidget.fromModel (currencyService.tJPYCAD);
-            var jpyaud = new RateWidget.fromModel (currencyService.tJPYAUD);
-            var jpynzd = new RateWidget.fromModel (currencyService.tJPYNZD);
+            //var
+            jpyusd = new RateWidget.fromModel (currencyService.tJPYUSD);
+            //var
+            jpyeur = new RateWidget.fromModel (currencyService.tJPYEUR);
+            //var
+            jpygbp = new RateWidget.fromModel (currencyService.tJPYGBP);
+            //var
+            jpychf = new RateWidget.fromModel (currencyService.tJPYCHF);
+            //var
+            jpycad = new RateWidget.fromModel (currencyService.tJPYCAD);
+            //var
+            jpyaud = new RateWidget.fromModel (currencyService.tJPYAUD);
+            //var
+            jpynzd = new RateWidget.fromModel (currencyService.tJPYNZD);
 
             grid.attach (jpyusd, 1, 4, 1, 1);
             grid.attach (jpyeur, 2, 4, 1, 1);
@@ -221,13 +313,20 @@ namespace Multicurrency {
             grid.attach (jpyaud, 7, 4, 1, 1);
             grid.attach (jpynzd, 8, 4, 1, 1);
 
-            var chfusd = new RateWidget.fromModel (currencyService.tCHFUSD);
-            var chfeur = new RateWidget.fromModel (currencyService.tCHFEUR);
-            var chfgbp = new RateWidget.fromModel (currencyService.tCHFGBP);
-            var chfjpy = new RateWidget.fromModel (currencyService.tCHFJPY);
-            var chfcad = new RateWidget.fromModel (currencyService.tCHFCAD);
-            var chfaud = new RateWidget.fromModel (currencyService.tCHFAUD);
-            var chfnzd = new RateWidget.fromModel (currencyService.tCHFNZD);
+            //var
+            chfusd = new RateWidget.fromModel (currencyService.tCHFUSD);
+            //var
+            chfeur = new RateWidget.fromModel (currencyService.tCHFEUR);
+            //var
+            chfgbp = new RateWidget.fromModel (currencyService.tCHFGBP);
+            //var
+            chfjpy = new RateWidget.fromModel (currencyService.tCHFJPY);
+            //var
+            chfcad = new RateWidget.fromModel (currencyService.tCHFCAD);
+            //var
+            chfaud = new RateWidget.fromModel (currencyService.tCHFAUD);
+            //var
+            chfnzd = new RateWidget.fromModel (currencyService.tCHFNZD);
 
             grid.attach (chfusd, 1, 5, 1, 1);
             grid.attach (chfeur, 2, 5, 1, 1);
@@ -238,13 +337,20 @@ namespace Multicurrency {
             grid.attach (chfaud, 7, 5, 1, 1);
             grid.attach (chfnzd, 8, 5, 1, 1);
 
-            var cadusd = new RateWidget.fromModel (currencyService.tCADUSD);
-            var cadeur = new RateWidget.fromModel (currencyService.tCADEUR);
-            var cadgbp = new RateWidget.fromModel (currencyService.tCADGBP);
-            var cadjpy = new RateWidget.fromModel (currencyService.tCADJPY);
-            var cadchf = new RateWidget.fromModel (currencyService.tCADCHF);
-            var cadaud = new RateWidget.fromModel (currencyService.tCADAUD);
-            var cadnzd = new RateWidget.fromModel (currencyService.tCADNZD);
+            //var
+            cadusd = new RateWidget.fromModel (currencyService.tCADUSD);
+            //var
+            cadeur = new RateWidget.fromModel (currencyService.tCADEUR);
+            //var
+            cadgbp = new RateWidget.fromModel (currencyService.tCADGBP);
+            //var
+            cadjpy = new RateWidget.fromModel (currencyService.tCADJPY);
+            //var
+            cadchf = new RateWidget.fromModel (currencyService.tCADCHF);
+            //var
+            cadaud = new RateWidget.fromModel (currencyService.tCADAUD);
+            //var
+            cadnzd = new RateWidget.fromModel (currencyService.tCADNZD);
 
             grid.attach (cadusd, 1, 6, 1, 1);
             grid.attach (cadeur, 2, 6, 1, 1);
@@ -255,13 +361,20 @@ namespace Multicurrency {
             grid.attach (cadaud, 7, 6, 1, 1);
             grid.attach (cadnzd, 8, 6, 1, 1);
 
-            var audusd = new RateWidget.fromModel (currencyService.tAUDUSD);
-            var audeur = new RateWidget.fromModel (currencyService.tAUDEUR);
-            var audgbp = new RateWidget.fromModel (currencyService.tAUDGBP);
-            var audjpy = new RateWidget.fromModel (currencyService.tAUDJPY);
-            var audchf = new RateWidget.fromModel (currencyService.tAUDCHF);
-            var audcad = new RateWidget.fromModel (currencyService.tAUDCAD);
-            var audnzd = new RateWidget.fromModel (currencyService.tAUDNZD);
+            //var
+            audusd = new RateWidget.fromModel (currencyService.tAUDUSD);
+            //var
+            audeur = new RateWidget.fromModel (currencyService.tAUDEUR);
+            //var
+            audgbp = new RateWidget.fromModel (currencyService.tAUDGBP);
+            //var
+            audjpy = new RateWidget.fromModel (currencyService.tAUDJPY);
+            //var
+            audchf = new RateWidget.fromModel (currencyService.tAUDCHF);
+            //var
+            audcad = new RateWidget.fromModel (currencyService.tAUDCAD);
+            //var
+            audnzd = new RateWidget.fromModel (currencyService.tAUDNZD);
 
             grid.attach (audusd, 1, 7, 1, 1);
             grid.attach (audeur, 2, 7, 1, 1);
@@ -272,13 +385,20 @@ namespace Multicurrency {
             grid.attach (new FillWidget(), 7, 7, 1, 1);
             grid.attach (audnzd, 8, 7, 1, 1);
 
-            var nzdusd = new RateWidget.fromModel (currencyService.tNZDUSD);
-            var nzdeur = new RateWidget.fromModel (currencyService.tNZDEUR);
-            var nzdgbp = new RateWidget.fromModel (currencyService.tNZDGBP);
-            var nzdjpy = new RateWidget.fromModel (currencyService.tNZDJPY);
-            var nzdchf = new RateWidget.fromModel (currencyService.tNZDCHF);
-            var nzdcad = new RateWidget.fromModel (currencyService.tNZDCAD);
-            var nzdaud = new RateWidget.fromModel (currencyService.tNZDAUD);
+            //var
+            nzdusd = new RateWidget.fromModel (currencyService.tNZDUSD);
+            //var
+            nzdeur = new RateWidget.fromModel (currencyService.tNZDEUR);
+            //var
+            nzdgbp = new RateWidget.fromModel (currencyService.tNZDGBP);
+            //var
+            nzdjpy = new RateWidget.fromModel (currencyService.tNZDJPY);
+            //var
+            nzdchf = new RateWidget.fromModel (currencyService.tNZDCHF);
+            //var
+            nzdcad = new RateWidget.fromModel (currencyService.tNZDCAD);
+            //var
+            nzdaud = new RateWidget.fromModel (currencyService.tNZDAUD);
 
             grid.attach (nzdusd, 1, 8, 1, 1);
             grid.attach (nzdeur, 2, 8, 1, 1);
@@ -298,6 +418,117 @@ namespace Multicurrency {
             set_title (locale.currency + ": " + currencyService.sDate + " " + currencyService.sHour + ":"
                 + currencyService.sMin + " " + currencyService.gmt);
 
+            GLib.DateTime s = currencyService.dateServer();
+//            message (s.get_year().to_string());
+  //          message (s.get_month().to_string());
+    //        message (s.get_day_of_month().to_string());
+      //      message (s.get_hour().to_string());
+            MyLib.DateRound ml = new MyLib.DateRound ();
+            GLib.DateTime l = ml.roundHour();
+//            message (l.get_year().to_string());
+  //          message (l.get_month().to_string());
+    //        message (l.get_day_of_month().to_string());
+      //      message (l.get_hour().to_string());
+            GLib.TimeSpan difference = l.difference(s);
+//            message (difference.to_string());
+            if(difference > 0) {
+                currencyService.updateRates();
+                Timeout.add (30000, update_rate);
+            }
+
+        }
+
+        private bool update_rate()
+        {
+            var app = GLib.Application.get_default();
+            Multicurrency.CurrencyService currencyService
+                = (app as Multicurrency.Application).currencyService;
+//            message ("clear");
+            currencyService.clearItems ();
+//            message ("get items");
+            currencyService.getItems ();
+            Timeout.add (3000, reload_window);
+            return false;
+        }
+
+        private bool reload_window()
+        {
+            var app = GLib.Application.get_default();
+            Multicurrency.CurrencyService currencyService
+                = (app as Multicurrency.Application).currencyService;
+            var locale = (app as Multicurrency.Application).settingsService.locale;
+
+//            message ("full");
+            currencyService.full ();
+
+            usdeur.update (currencyService.tUSDEUR);
+            usdgbp.update (currencyService.tUSDGBP);
+            usdjpy.update (currencyService.tUSDJPY);
+            usdchf.update (currencyService.tUSDCHF);
+            usdcad.update (currencyService.tUSDCAD);
+            usdaud.update (currencyService.tUSDAUD);
+            usdnzd.update (currencyService.tUSDNZD);
+
+            eurusd.update (currencyService.tEURUSD);
+            eurgbp.update (currencyService.tEURGBP);
+            eurjpy.update (currencyService.tEURJPY);
+            eurchf.update (currencyService.tEURCHF);
+            eurcad.update (currencyService.tEURCAD);
+            euraud.update (currencyService.tEURAUD);
+            eurnzd.update (currencyService.tEURNZD);
+
+            gbpusd.update (currencyService.tGBPUSD);
+            gbpeur.update (currencyService.tGBPEUR);
+            gbpjpy.update (currencyService.tGBPJPY);
+            gbpchf.update (currencyService.tGBPCHF);
+            gbpcad.update (currencyService.tGBPCAD);
+            gbpaud.update (currencyService.tGBPAUD);
+            gbpnzd.update (currencyService.tGBPNZD);
+
+            jpyusd.update (currencyService.tJPYUSD);
+            jpyeur.update (currencyService.tJPYEUR);
+            jpygbp.update (currencyService.tJPYGBP);
+            jpychf.update (currencyService.tJPYCHF);
+            jpycad.update (currencyService.tJPYCAD);
+            jpyaud.update (currencyService.tJPYAUD);
+            jpynzd.update (currencyService.tJPYNZD);
+
+            chfusd.update (currencyService.tCHFUSD);
+            chfeur.update (currencyService.tCHFEUR);
+            chfgbp.update (currencyService.tCHFGBP);
+            chfjpy.update (currencyService.tCHFJPY);
+            chfcad.update (currencyService.tCHFCAD);
+            chfaud.update (currencyService.tCHFAUD);
+            chfnzd.update (currencyService.tCHFNZD);
+
+            cadusd.update (currencyService.tCADUSD);
+            cadeur.update (currencyService.tCADEUR);
+            cadgbp.update (currencyService.tCADGBP);
+            cadjpy.update (currencyService.tCADJPY);
+            cadchf.update (currencyService.tCADCHF);
+            cadaud.update (currencyService.tCADAUD);
+            cadnzd.update (currencyService.tCADNZD);
+
+            audusd.update (currencyService.tAUDUSD);
+            audeur.update (currencyService.tAUDEUR);
+            audgbp.update (currencyService.tAUDGBP);
+            audjpy.update (currencyService.tAUDJPY);
+            audchf.update (currencyService.tAUDCHF);
+            audcad.update (currencyService.tAUDCAD);
+            audnzd.update (currencyService.tAUDNZD);
+
+            nzdusd.update (currencyService.tNZDUSD);
+            nzdeur.update (currencyService.tNZDEUR);
+            nzdgbp.update (currencyService.tNZDGBP);
+            nzdjpy.update (currencyService.tNZDJPY);
+            nzdchf.update (currencyService.tNZDCHF);
+            nzdcad.update (currencyService.tNZDCAD);
+            nzdaud.update (currencyService.tNZDAUD);
+
+            set_title (locale.currency + ": " + currencyService.sDate + " " + currencyService.sHour + ":"
+                + currencyService.sMin + " " + currencyService.gmt);
+
+            return false;
         }
 
         public int windowHeight {

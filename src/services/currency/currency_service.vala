@@ -7,10 +7,20 @@ namespace Multicurrency {
             listRates = new Gee.ArrayList<CurrencyModel> ();
         }
 
+        public void clearItems () {
+            listRates.clear ();
+        }
+
         public void getItems () {
             var currencyProvider = new CurrencyProvider ();
             currencyProvider.getItems ( listRates );
 //            message (listRates.size.to_string ());
+        }
+
+        public void updateRates () {
+            var currencyProvider = new CurrencyProvider ();
+            currencyProvider.updateRates ();
+
         }
 
         private CurrencyModel getModel (string nameRate) {
@@ -89,9 +99,17 @@ namespace Multicurrency {
 
         public string sDateTime { get; set; }
         public string sDate { get; set; }
+        public string sYear { get; set; }
+        public string sMonth { get; set; }
+        public string sDay { get; set; }
         public string sHour { get; set; }
         public string sMin { get; set; }
         public string gmt { get; set; }
+        public GLib.DateTime dateServer() {
+                return new GLib.DateTime(new GLib.TimeZone.local(),
+                    int.parse(sYear), int.parse(sMonth), int.parse(sDay),
+                    int.parse(sHour), 0, 0.0);
+        }
 
         public void full () {
             tUSDEUR = getModel ("USD/EUR");
@@ -162,6 +180,9 @@ namespace Multicurrency {
             sDate = listRates[0].datetime.substring (0,10);
             sHour = listRates[0].datetime.substring (11,2);
             sMin = listRates[0].datetime.substring (14,2);
+            sYear = listRates[0].datetime.substring (0,4);
+            sMonth = listRates[0].datetime.substring (5,2);
+            sDay = listRates[0].datetime.substring (8,2);
             gmt = "GMT";
         }
     }

@@ -27,6 +27,7 @@ multicurrency_sources = [
   'utils/http.vala',
   'utils/info_linux.vala',
   'utils/info_linux.c',
+  'utils/date_round.vala',
   'application.vala',
 ]
 
