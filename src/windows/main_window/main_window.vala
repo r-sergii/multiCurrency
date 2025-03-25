@@ -417,7 +417,7 @@ namespace Multicurrency {
 //            set_title ("Currency: " + currencyService.sDate + " " + currencyService.sHour + ":"
             set_title (locale.currency + ": " + currencyService.sDate + " " + currencyService.sHour + ":"
                 + currencyService.sMin + " " + currencyService.gmt);
-
+/*
             GLib.DateTime s = currencyService.dateServer();
 //            message (s.get_year().to_string());
   //          message (s.get_month().to_string());
@@ -435,7 +435,7 @@ namespace Multicurrency {
                 currencyService.updateRates();
                 Timeout.add (30000, update_rate);
             }
-
+*/
         }
 
         private bool update_rate()

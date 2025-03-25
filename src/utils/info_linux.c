@@ -7,6 +7,22 @@ const int SIZEOS2 = 1024;
 const int SIZECPU = 4096;
 const int SIZETECH = 8192;
 
+#include <unistd.h>
+#include <linux/limits.h>
+
+int get_path()
+{
+  char cwd[PATH_MAX];
+  if(getcwd(cwd, sizeof(cwd)) != NULL) {
+    printf("Current working dir: %s\n", cwd);
+  }
+  else {
+    perror("getcwd() error");
+    return 1;
+  }
+  return 0;
+}
+
 char* get_name_os_linux()
 {
   FILE *fp;

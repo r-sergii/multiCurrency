@@ -2,6 +2,7 @@ extern string get_name_os_linux ();
 extern string get_name_os2_linux ();
 extern string get_name_cpu_linux ();
 //extern string get_name_architecture_linux ();
+extern int get_path();
 
 namespace MyLib
 {
@@ -28,6 +29,7 @@ namespace MyLib
 
 	        _os = find_os2 ();
 	        _cpu = find_cpu ();
+	        get_path ();
         }
 
         private string find_os () {
